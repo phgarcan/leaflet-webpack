@@ -3,7 +3,7 @@
 Clonez le repo
 
 ```bash
-git@github.com:idris-maps/leaflet-webpack.git
+git clone git@github.com:idris-maps/leaflet-webpack.git
 cd leaflet-webpack
 npm install
 ```
