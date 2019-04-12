@@ -1,14 +1,18 @@
-import {
-  map as initMap,
-  tileLayer,
-} from 'leaflet'
+import Data from './data.js'
 
-const map = initMap('map').setView([46.7785, 6.6412], 13)
+import L from 'leaflet'
 
-const osmCH = tileLayer('https://tile.osm.ch/switzerland/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  bounds: [[45, 5], [48, 11]]
-})
+const map = L.map('map').setView([46.5311, 6.6301], 13)
+
+var osmCH = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+
+// my variable data
+const fastFoods = L.geoJson(Data)
 
 osmCH.addTo(map)
+
+// add my data on the map
+fastFoods.addTo(map)
